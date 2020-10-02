@@ -48,3 +48,39 @@ notification:
   default_page: 8
 activities:
   per_page_10: 10
+
+games:
+  images:
+    dota:
+      width: 265
+      height: 160
+    genshin:
+      width: 265
+      height: 170
+    fortnite:
+      width: 265
+      height: 160
+    gta:
+      width: 265
+      height: 170
+    pubg:
+      width: 265
+      height: 170
+    CSGo:
+      width: 265
+      height: 150
+    slamdunk:
+      width: 265
+      heigth: 195
+    falcom:
+      width: 265
+      height: 130
+  links:
+    dota: https://www.dota2.com/play/
+    genshin: https://genshin.mihoyo.com/en
+    fortnite: https://www.epicgames.com/fortnite/en-US/home
+    pubg: https://www.pubg.com/en-us/
+    CSGo: https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/
+    slamdunk: https://slamdunkmobile.com/
+    gta: https://www.rockstargames.com/
+    falcom: https://www.falcom.co.jp/hajimari/

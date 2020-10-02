@@ -7,6 +7,8 @@ gem "bcrypt", "~> 3.1.15"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-sass", "3.4.1"
 gem "carrierwave", "~> 2.1"
+gem "caxlsx"
+gem "caxlsx_rails"
 gem "chartkick"
 gem "config"
 gem "faker"
@@ -25,9 +27,10 @@ gem "rails-i18n"
 gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
+gem "roo"
 
 group :development, :test do
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "pry-rails"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
 end

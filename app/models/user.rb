@@ -40,6 +40,22 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+
+    def import file
+      spreadsheet = Roo::Excelx.new(file.path)
+      header = spreadsheet.row 1
+      begin
+        (2..spreadsheet.last_row).each do |i|
+          row = Hash[[header, spreadsheet.row(i)].transpose]
+          user = find_by_id(row["id"]) || new
+          user.attributes = row.to_hash.merge(password: "123456", password_confirmation: "123456")
+          user.save!
+        end
+        true
+      rescue
+        false
+      end
+    end
   end
 
   def remember

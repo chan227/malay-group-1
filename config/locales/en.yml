@@ -38,7 +38,7 @@ en:
       description_title: "This is the about page for the Gamer Community."
 
   users:
-    users_not_found: "User not found!"
+    user_not_found: "User not found!"
     login_remind: "Please log in"
     new:
       signup_title: "Sign Up"
@@ -56,6 +56,10 @@ en:
     destroy:
       success_mess_delete: "User deleted"
       fail_mess_delete: "Fail to delete user"
+    import:
+      success_mess_import: "Success to import User"
+      fail_mess_import: "Please choose the correct format !!!"
+      warn_mess_import: "Duplicated user or email. Please try a new file !"
     edit:
       edit_title: "Edit User"
       heading: "Update your profile"
@@ -67,6 +71,8 @@ en:
     index:
       index_title: "All Users"
       heading: "All users"
+      import: "Import"
+      export: "Export"
     user:
       delete_link: "Delete"
       confirm: "You sure?"
@@ -76,6 +82,11 @@ en:
       like_count: "Likes"
       mark_count: "Marks"
       report_count: "Reports"
+    import_users:
+      import_title: "Import User"
+      heading: "Import"
+      import: "Import"
+      return: "Return"
 
   sessions:
     new:
