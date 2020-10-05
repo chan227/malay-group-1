@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     get "topics/new", to: "topics#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-    resources :users
+    resources :users do
+      collection do
+        post :import
+      end
+    end
     resources :account_activations, only: :edit
     resources :password_resets, except: %i(index show destroy)
     resources :topics

@@ -1,6 +1,10 @@
 <% provide :title, t(".index_title") %>
 <h1><%= t ".heading" %></h1>
 
+<div class="download">
+  <%= link_to t(".export"), users_path(format: :xlsx), class: "btn btn-default" %>
+</div>
+
 <ul class="users">
   <%= render @users %>
 </ul>
@@ -8,3 +12,5 @@
 <div class="pagination">
   <%= paginate @users %>
 </div>
+
+<%= render "import_users" %>

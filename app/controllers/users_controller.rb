@@ -1,11 +1,18 @@
 class UsersController < ApplicationController
-  before_action :load_user, except: %i(new create index)
+  before_action :load_user, except: %i(new create index import)
   before_action :logged_in_user, except: %i(show new create)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
 
   def index
-    @users = User.sort_by_name.page(params[:page]).per(Settings.users.page.default_page)
+    @all_users = User.all
+    @users = @all_users.sort_by_name.page(params[:page]).per(Settings.users.page.default_page)
+    respond_to do |format|
+      format.xlsx {
+        response.headers["Forum of Gamer Community"] = "attachment; filename='Users.xlsx'"
+      }
+      format.html { render :index }
+    end
   end
 
   def show
@@ -46,6 +53,19 @@ class UsersController < ApplicationController
       flash[:success] = t ".success_mess_delete"
     else
       flash[:warning] = t ".fail_mess_delete"
+    end
+    redirect_to users_path
+  end
+
+
+  def import
+    file = params[:attachment]
+    if params[:attachment].blank? || File.extname(file.original_filename) != ".xlsx"
+      flash[:warning] = t "warn_mess_import"
+    elsif User.import(file)
+      flash[:success] = t ".success_mess_import"
+    else
+      flash[:warning] = t ".fail_mess_import"
     end
     redirect_to users_path
   end
